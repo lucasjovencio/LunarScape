@@ -1,0 +1,61 @@
+CREATE TABLE usuarios(
+usuario_id int(5) NOT NULL auto_increment,
+fullname varchar(50) NOT NULL default '',
+email varchar(50) NOT NULL default "",
+username varchar(32) NOT NULL default "",
+senha varchar(32) NOT NULL default "",
+nivel_usuario enum('0','1','2') NOT NULL default '0',
+data_cadastro datetime NOT NULL default '2016-01-01 00:00:00',
+data_ultimo_login datetime NOT NULL default '2016-01-01 00:00:00',
+active enum('0','1') NOT NULL default '0',
+key_activate int(5) NOT  NULL default '999',
+PRIMARY KEY (usuario_id)
+);
+
+
+CREATE TABLE posicao(
+usuario_id int(5) NOT NULL,
+x int(5) NOT NULL default '18',
+y int(5) NOT NULL default '3',
+PRIMARY KEY (usuario_id)
+);
+
+
+
+CREATE TABLE pos_rec (
+recurso_id int(5) NOT NULL,
+x int(5) NOT NULL default '18',
+y int(5) NOT NULL default '3',
+z int(5) NOT NULL default '0', 
+PRIMARY KEY (recurso_id, x, y)
+);
+
+
+CREATE TABLE sacola(
+usuario_id int(5) NOT NULL,
+slot_1 int(3) NOT NULL default '0',
+slot_2 int(3) NOT NULL default '0',
+slot_3 int(3) NOT NULL default '0',
+slot_4 int(3) NOT NULL default '0',
+slot_5 int(3) NOT NULL default '0',
+oxigenio int(3) NOT NULL default '100',
+energia int(3) NOT NULL default '100',
+capacete boolean default TRUE,
+PRIMARY KEY (usuario_id)
+);
+
+
+INSERT INTO `usuarios` (`usuario_id`, `fullname`, `email`, `username`, `senha`, `nivel_usuario`, `data_cadastro`, `data_ultimo_login`, `active`, `key_activate`) VALUES (NULL, 'delermando', 'delermando', 'delermqndo', 'aaa', '0', '2016-01-01 00:00:00.000000', '2016-01-01 00:00:00.000000', '0', '999');
+
+INSERT INTO LunarScape.usuarios(
+    usuario_id,
+    fullname,
+    email,
+    username,
+    senha,
+    nivel_usuario,
+    data_cadastro,
+    data_ultimo_login,
+    active,
+    key_activate) 
+    VALUES                                       (NULL,"delermando","email","delermando","pass",'0','2016-01-01 00:00:00.000000', '2016-01-01 00:00:00.000000','0',"999");
